@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="Vlx6jq" name="GrowlC" projectType="audioplug" useAppConfig="0"
+<JUCERPROJECT id="s6V28N" name="GrowlC" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
-  <MAINGROUP id="Bhx3IP" name="GrowlC">
-    <GROUP id="{6F558A75-FAE3-8FDA-3F27-E4B24801B615}" name="Source">
-      <FILE id="FuEg6M" name="PluginProcessor.cpp" compile="1" resource="0"
+  <MAINGROUP id="q8VzGz" name="GrowlC">
+    <GROUP id="{E05D6D02-085D-139F-2818-51E2F36F7881}" name="Source">
+      <FILE id="vxdGEL" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
-      <FILE id="MkCicl" name="PluginProcessor.h" compile="0" resource="0"
+      <FILE id="yL5NeT" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="WrLsAf" name="PluginEditor.cpp" compile="1" resource="0"
+      <FILE id="fL9MzK" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
-      <FILE id="q3HXDc" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="fzsdU8" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
