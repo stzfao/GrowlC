@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="s6V28N" name="GrowlC" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" cppLanguageStandard="20">
   <MAINGROUP id="q8VzGz" name="GrowlC">
     <GROUP id="{E05D6D02-085D-139F-2818-51E2F36F7881}" name="Source">
       <FILE id="vxdGEL" name="PluginProcessor.cpp" compile="1" resource="0"

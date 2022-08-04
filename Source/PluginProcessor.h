@@ -1,9 +1,9 @@
 /*
-  ==============================================================================
+  ====================================================================================
 
-    This file contains the basic framework code for a JUCE plugin processor.
+    This file contains the basic framework code for my JUCE plugin processor, GrowlC.
 
-  ==============================================================================
+  ====================================================================================
 */
 
 #pragma once
@@ -55,6 +55,10 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+
+    static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
+
+    juce::AudioProcessorValueTreeState apvts{ *this, nullptr, "Params", createParameterLayout()};
 
 private:
     //==============================================================================
