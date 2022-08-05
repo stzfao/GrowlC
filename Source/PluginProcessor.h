@@ -64,13 +64,7 @@ private:
 
     
     //create namespaces here
-    juce::dsp::Oscillator<float> sawWave{ [](float inp) {
-        return juce::jmap(inp,
-                float(-juce::MathConstants<double>::pi),
-                float(juce::MathConstants<double>::pi),
-                float(-1),
-                float(1));
-    }, 128 };
+    //juce::dsp::Oscillator<float> sawWave{ , 128 };
 
     juce::dsp::Gain<float> gain;
 

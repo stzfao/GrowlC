@@ -12,6 +12,13 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="fzsdU8" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
+    <GROUP id="{5F130BD5-5C0E-2F81-B324-A9017A4F9C96}" name="UI"/>
+    <GROUP id="{CFEC3ECE-E33D-EBE4-57C0-27E208C23F6B}" name="Data">
+      <FILE id="AckIE6" name="OscillatorData.cpp" compile="1" resource="0"
+            file="Source/Data/OscillatorData.cpp"/>
+      <FILE id="MZsynw" name="OscillatorData.h" compile="0" resource="0"
+            file="Source/Data/OscillatorData.h"/>
+    </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>

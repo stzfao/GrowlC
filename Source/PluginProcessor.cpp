@@ -101,10 +101,10 @@ void GrowlCAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock
     processSpec.sampleRate = sampleRate;
     processSpec.numChannels = getTotalNumOutputChannels();
 
-    sawWave.prepare(processSpec);
+    //sawWave.prepare(processSpec);
     gain.prepare(processSpec);
 
-    sawWave.setFrequency(220.0f);
+    //sawWave.setFrequency(220.0f);
     gain.setGainLinear(0.01f);
 }
 
@@ -170,7 +170,7 @@ void GrowlCAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
 
     juce::dsp::AudioBlock<float> audioBlock{ buffer };
 
-    sawWave.process(juce::dsp::ProcessContextReplacing<float> (audioBlock));
+    //sawWave.process(juce::dsp::ProcessContextReplacing<float> (audioBlock));
     gain.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 }
 
@@ -189,13 +189,20 @@ juce::AudioProcessorEditor* GrowlCAudioProcessor::createEditor()
 //==============================================================================
 void GrowlCAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
+    juce::MemoryOutputStream mos(destData, true);
+    apvts.state.writeToStream(mos);
+
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+    // as intermediaries to make it easy to save and load complex data. 
 }
 
 void GrowlCAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
+    //if tree data valid, then replace state
+    auto tree = juce::ValueTree::readFromData(data, sizeInBytes);   //creating a tree
+    if (tree.isValid()) apvts.replaceState(tree);
+
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
 }
@@ -209,12 +216,17 @@ juce::AudioProcessorValueTreeState::ParameterLayout GrowlCAudioProcessor::create
         "growlFrequency",
         "Growl Frequency",
         juce::NormalisableRange<float>(0.0f, 1000.f, 0.01f, 1.f),
-        5.0f));
+        5.0f ));
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "growlIntensity",
         "Growl Intensity",
         juce::NormalisableRange<float>(0.0f, 1000.f, 0.01f, 1.f),
-        5.0f));
+        5.0f ));
+    layout.add(std::make_unique<juce::AudioParameterChoice>(
+        "waveType",
+        "Wave Type", 
+        juce::StringArray{ "SawTooth", "Triangle"},
+        0 ));
 
     return layout;
 }
