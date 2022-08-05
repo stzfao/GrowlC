@@ -95,6 +95,17 @@ void GrowlCAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+
+    juce::dsp::ProcessSpec processSpec;
+    processSpec.maximumBlockSize = samplesPerBlock;
+    processSpec.sampleRate = sampleRate;
+    processSpec.numChannels = getTotalNumOutputChannels();
+
+    sawWave.prepare(processSpec);
+    gain.prepare(processSpec);
+
+    sawWave.setFrequency(220.0f);
+    gain.setGainLinear(0.01f);
 }
 
 void GrowlCAudioProcessor::releaseResources()
@@ -156,6 +167,11 @@ void GrowlCAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
 
         // ..do something to the data...
     }
+
+    juce::dsp::AudioBlock<float> audioBlock{ buffer };
+
+    sawWave.process(juce::dsp::ProcessContextReplacing<float> (audioBlock));
+    gain.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
 }
 
 //==============================================================================

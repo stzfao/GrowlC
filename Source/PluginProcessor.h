@@ -62,8 +62,17 @@ public:
 
 private:
 
-    //juce::dsp::Oscillator<float> osc
+    
+    //create namespaces here
+    juce::dsp::Oscillator<float> sawWave{ [](float inp) {
+        return juce::jmap(inp,
+                float(-juce::MathConstants<double>::pi),
+                float(juce::MathConstants<double>::pi),
+                float(-1),
+                float(1));
+    }, 128 };
 
+    juce::dsp::Gain<float> gain;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GrowlCAudioProcessor)
