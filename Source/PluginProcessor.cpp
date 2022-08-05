@@ -166,7 +166,8 @@ bool GrowlCAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* GrowlCAudioProcessor::createEditor()
 {
-    return new GrowlCAudioProcessorEditor (*this);
+    //return new GrowlCAudioProcessorEditor (*this);
+    return new juce::GenericAudioProcessorEditor(*this);
 }
 
 //==============================================================================
@@ -183,9 +184,23 @@ void GrowlCAudioProcessor::setStateInformation (const void* data, int sizeInByte
     // whose contents will have been created by the getStateInformation() call.
 }
 
+//Value Tree for GUI Connection
+
 juce::AudioProcessorValueTreeState::ParameterLayout GrowlCAudioProcessor::createParameterLayout()
 {
+    juce::AudioProcessorValueTreeState::ParameterLayout layout;
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "growlFrequency",
+        "Growl Frequency",
+        juce::NormalisableRange<float>(0.0f, 1000.f, 0.01f, 1.f),
+        5.0f));
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "growlIntensity",
+        "Growl Intensity",
+        juce::NormalisableRange<float>(0.0f, 1000.f, 0.01f, 1.f),
+        5.0f));
 
+    return layout;
 }
 
 

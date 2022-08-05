@@ -61,6 +61,10 @@ public:
     juce::AudioProcessorValueTreeState apvts{ *this, nullptr, "Params", createParameterLayout()};
 
 private:
+
+    //juce::dsp::Oscillator<float> osc
+
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GrowlCAudioProcessor)
 };
