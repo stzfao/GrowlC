@@ -15,11 +15,9 @@ GrowlC is a VST plugin to add a "growl" effect to your vocals in post production
 
 ## Background
 
-- Import a HTML file and watch it magically convert to Markdown
-- Drag and drop images (requires your Dropbox account be linked)
-- Import and save files from GitHub, Dropbox, Google Drive and One Drive
-- Drag and drop markdown and HTML files into Dillinger
-- Export documents as Markdown, HTML and PDF
+- Frequency modulating a triangular/sawtooth wave with a vocal sample creates a growl effect that distorts the sample. 
+- Adding this functionality with a modulator choice allows for the user to modify vocals in post-processing. 
+- Additionally, an equaliser allows the user to cut off higher frequencies to remove "chirp" sounds
 
 Markdown is a lightweight markup language based on the formatting conventions
 that people naturally use in email.
